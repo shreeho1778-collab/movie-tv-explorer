@@ -61,7 +61,7 @@ npm install
 npm run seed:mongo
 ```
 
-This creates the MongoDB indexes, two accounts and sample reviews:
+This configures MongoDB collection validation and indexes, then seeds two accounts and sample reviews:
 
 | Role | Email | Password |
 |---|---|---|
@@ -69,6 +69,11 @@ This creates the MongoDB indexes, two accounts and sample reviews:
 | user | user@movietv.local | User@123 |
 
 New sign-ups always get the **user** role.
+
+For an existing database, run `npm run validate:mongo` to apply or update the
+validators without reseeding. The MongoDB account needs permission to create
+collections and run `collMod`. The database rejects invalid inserts and updates
+to users, reviews, and activity logs. Existing documents are checked when updated.
 
 ## 5. Run
 

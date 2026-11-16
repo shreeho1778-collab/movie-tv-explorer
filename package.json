@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "seed:mongo": "node scripts/seed-mongo.mjs"
+    "seed:mongo": "node scripts/seed-mongo.mjs",
+    "validate:mongo": "node scripts/validate-mongo.mjs"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",

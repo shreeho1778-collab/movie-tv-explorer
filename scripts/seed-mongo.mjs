@@ -3,6 +3,7 @@
 import dotenv from 'dotenv';
 import bcrypt from 'bcryptjs';
 import { MongoClient } from 'mongodb';
+import { ensureCollectionValidation } from '../lib/mongo-validation.mjs';
 
 dotenv.config({ path: '.env.local' });
 
@@ -15,6 +16,8 @@ if (!uri) {
 const client = new MongoClient(uri);
 await client.connect();
 const db = client.db(process.env.MONGODB_DB || 'movie_tv_nosql');
+
+await ensureCollectionValidation(db);
 
 await db.collection('users').createIndex({ email: 1 }, { unique: true });
 await db.collection('reviews').createIndex({ movieId: 1, userId: 1 }, { unique: true });
