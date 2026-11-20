@@ -1,5 +1,8 @@
 # Movie/TV Relationship Exploration System
 
+- Shree Krishna - PES1UG24CS440
+- Simran Joshi - PES1UG24CS455
+
 A web application for browsing movies and TV shows and exploring how the people behind them
 (actors, directors, writers, producers) are connected.
 
