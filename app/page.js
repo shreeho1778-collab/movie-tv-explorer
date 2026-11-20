@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { api, year } from '@/lib/api';
+import MoviePoster from '@/components/MoviePoster';
 
 export default function Home() {
   const [stats, setStats] = useState(null);
@@ -31,6 +32,7 @@ export default function Home() {
       <div className="grid">
         {top.map((m) => (
           <Link key={m.Movie_ID} href={`/movies/${m.Movie_ID}`} className="card">
+            <MoviePoster title={m.Title} />
             <h3>{m.Title}</h3>
             <div className="muted small">{m.Type} · {year(m.Release_Date)}</div>
             <div className="small" style={{ margin: '6px 0' }}>{m.Genres}</div>

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useCallback, useEffect, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { api, year } from '@/lib/api';
+import MoviePoster from '@/components/MoviePoster';
 
 export default function MovieDetail() {
   const { id } = useParams();
@@ -59,6 +60,7 @@ export default function MovieDetail() {
         {franchises.map((f) => <Link key={f.Franchise_ID} href={`/movies?franchise=${f.Franchise_ID}`} className="badge gold">{f.Franchise_Name}</Link>)}
       </div>
       <p>{movie.Overview}</p>
+      <MoviePoster title={movie.Title} detail />
       {msg && <p className="success">{msg}</p>}
       {error && <p className="error">{error}</p>}
 
